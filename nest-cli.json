@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/planet-project/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/planet-project/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/planet-project",
+  "projects": {
+    "planet": {
+      "type": "application",
+      "root": "apps/planet",
+      "entryFile": "main",
+      "sourceRoot": "apps/planet/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/planet/tsconfig.app.json"
+      }
+    },
+    "planet-project": {
+      "type": "application",
+      "root": "apps/planet-project",
+      "entryFile": "main",
+      "sourceRoot": "apps/planet-project/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/planet-project/tsconfig.app.json"
+      }
+    },
+    "planet-project-api-gateway": {
+      "type": "application",
+      "root": "apps/planet-project-api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/planet-project-api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/planet-project-api-gateway/tsconfig.app.json"
+      }
+    },
+    "users": {
+      "type": "application",
+      "root": "apps/users",
+      "entryFile": "main",
+      "sourceRoot": "apps/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    }
+  }
+}
