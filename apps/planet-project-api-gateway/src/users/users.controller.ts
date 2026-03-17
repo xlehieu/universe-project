@@ -8,6 +8,8 @@ export class UsersController {
 
   @Get()
   findAll() {
-    return this.userClient.send();
+    return this.userClient.send('users.findAll', {
+      data: 123,
+    });
   }
 }

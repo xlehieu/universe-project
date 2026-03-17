@@ -37,6 +37,15 @@
         "tsConfigPath": "apps/planet-project-api-gateway/tsconfig.app.json"
       }
     },
+    "planet-project-api-gateway-2": {
+      "type": "application",
+      "root": "apps/planet-project-api-gateway-2",
+      "entryFile": "main",
+      "sourceRoot": "apps/planet-project-api-gateway-2/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/planet-project-api-gateway-2/tsconfig.app.json"
+      }
+    },
     "users": {
       "type": "application",
       "root": "apps/users",

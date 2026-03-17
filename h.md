@@ -12,6 +12,8 @@ nest new planet-project
 
 ```bash
 nest g app planet-project-api-gateway
+nest g app planet
+nest g app users
 ```
 
 ==> Add a users module to the gateway application
