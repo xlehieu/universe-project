@@ -10,4 +10,8 @@ export class UsersController {
   findAll() {
     return this.usersService.findAll();
   }
+  @MessagePattern('users.wait')
+  async getHello() {
+    return 'Hello World!';
+  }
 }

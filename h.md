@@ -33,3 +33,9 @@ nest g service users --project planet-project-api-gateway
 ```bash
 nest g controller users --project planet-project-api-gateway
 ```
+
+==> Add a resource to to the gateway application
+
+```bash
+nest g resource planet --project planet-project-api-gateway
+```

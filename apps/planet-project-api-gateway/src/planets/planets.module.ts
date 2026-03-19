@@ -1,21 +1,21 @@
 import { Module } from '@nestjs/common';
-import { UsersController } from './users.controller';
+import { PlanetsController } from './planets.controller';
+import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
     ClientsModule.register([
       {
-        name: 'USERS_CLIENT',
+        name: 'PLANETS_CLIENT',
         transport: Transport.TCP,
         options: {
-          // thằng port này đăng lắng nghe của user dưới
-          port: 1912,
+          port: 3001,
         },
       },
     ]),
   ],
-  controllers: [UsersController],
+  controllers: [PlanetsController],
   providers: [],
 })
-export class UsersModule {}
+export class PlanetsModule {}

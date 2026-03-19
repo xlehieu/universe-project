@@ -3,10 +3,7 @@ import { PlanetProjectApiGatewayService } from './planet-project-api-gateway.ser
 
 @Controller()
 export class PlanetProjectApiGatewayController {
-  constructor(private readonly planetProjectApiGatewayService: PlanetProjectApiGatewayService) {}
-
-  @Get()
-  getHello(): string {
-    return this.planetProjectApiGatewayService.getHello();
-  }
+  constructor(
+    private readonly planetProjectApiGatewayService: PlanetProjectApiGatewayService,
+  ) {}
 }

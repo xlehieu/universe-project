@@ -1,5 +1,4 @@
 import { Controller, Get, Inject } from '@nestjs/common';
-import { UsersService } from './users.service';
 import { ClientProxy } from '@nestjs/microservices';
 
 @Controller('users')
@@ -8,8 +7,11 @@ export class UsersController {
 
   @Get()
   findAll() {
-    return this.userClient.send('users.findAll', {
-      data: 123,
-    });
+    return this.userClient.send('users.findAll', {});
+  }
+  @Get('/wait')
+  async wait() {
+    await new Promise((resolve) => setTimeout(resolve, 20000));
+    return this.userClient.send('users.wait', {});
   }
 }
