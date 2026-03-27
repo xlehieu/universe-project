@@ -13,7 +13,6 @@ export class PlanetsService {
   ) {}
   async create(createPlanetDto: CreatePlanetDto) {
     const planet = this.planetRepo.create(createPlanetDto);
-    console.log('CREATE PLANET', planet);
     return await this.planetRepo.save(planet);
   }
 

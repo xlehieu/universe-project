@@ -3,9 +3,10 @@ import { PlanetProjectApiGatewayController } from './planet-project-api-gateway.
 import { PlanetProjectApiGatewayService } from './planet-project-api-gateway.service';
 import { UsersModule } from './users/users.module';
 import { PlanetsModule } from './planets/planets.module';
+import { GalaxyModule } from './galaxy/galaxy.module';
 
 @Module({
-  imports: [UsersModule, PlanetsModule],
+  imports: [UsersModule, PlanetsModule, GalaxyModule],
   controllers: [PlanetProjectApiGatewayController],
   providers: [PlanetProjectApiGatewayService],
 })

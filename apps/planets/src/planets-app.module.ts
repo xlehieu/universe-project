@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { PlanetsModule } from './planets/planets.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoonsModule } from './moons/moons.module';
+import { SystemsModule } from './systems/systems.module';
+import { GalaxiesModule } from './galaxies/galaxies.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { MoonsModule } from './moons/moons.module';
     }),
     PlanetsModule,
     MoonsModule,
+    SystemsModule,
+    GalaxiesModule,
   ],
   controllers: [],
   providers: [],

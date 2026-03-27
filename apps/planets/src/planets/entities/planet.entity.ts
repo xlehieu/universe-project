@@ -3,18 +3,21 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Moon } from '../../moons/entities/moon.entity';
+import { System } from '../../systems/entities/system.entity';
 export enum PlanetType {
-  TERRESTRIAL = 'terrestrial',
-  GAS_GIANT = 'gas_giant',
-  ICE_GIANT = 'ice_giant',
-  DWARF = 'dwarf',
-  SUPER_EARTH = 'super_earth',
-  SUB_EARTH = 'sub_earth',
+  TERRESTRIAL = 'terrestrial', // hành tinh đất đá
+  GAS_GIANT = 'gas_giant', // hành tinh khí
+  ICE_GIANT = 'ice_giant', // hành tinh băng
+  DWARF = 'dwarf', // hành tinh lùn
+  SUPER_EARTH = 'super_earth', // siêu trái đất
+  SUB_EARTH = 'sub_earth', // hành tinh nhỏ hơn trái đất
 }
 @Entity()
 export class Planet {
@@ -25,7 +28,7 @@ export class Planet {
   name!: string;
 
   @Column({ nullable: true })
-  description!: string;
+  description: string;
 
   @Column({
     type: 'enum',
@@ -38,6 +41,7 @@ export class Planet {
     nullable: true,
   })
   texture: string;
+
   @Column('float')
   position_x!: number;
 
@@ -59,11 +63,15 @@ export class Planet {
   @Column({ nullable: true })
   ring_color_hex?: string;
 
-  @Column('uuid')
-  solar_system_id!: string;
-
   @OneToMany(() => Moon, (moon) => moon.planet)
   moons!: Moon[];
+
+  @Column('uuid')
+  system_id!: string;
+
+  @ManyToOne(() => System, (planet) => planet.planets, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'system_id' })
+  system!: Planet;
 
   @CreateDateColumn() // tự set khi insert
   created_at!: Date;

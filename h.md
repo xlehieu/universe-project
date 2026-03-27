@@ -39,3 +39,9 @@ nest g controller users --project planet-project-api-gateway
 ```bash
 nest g resource planet --project planet-project-api-gateway
 ```
+
+chạy thằng này để chạy được docker cli
+
+```bash
+colima start
+```
