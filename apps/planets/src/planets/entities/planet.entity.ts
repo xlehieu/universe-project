@@ -71,7 +71,7 @@ export class Planet {
 
   @ManyToOne(() => System, (planet) => planet.planets, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'system_id' })
-  system!: Planet;
+  system!: System;
 
   @CreateDateColumn() // tự set khi insert
   created_at!: Date;

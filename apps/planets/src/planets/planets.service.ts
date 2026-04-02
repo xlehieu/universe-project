@@ -23,9 +23,20 @@ export class PlanetsService {
 
   findOne(id: string) {
     const planet = this.planetRepo.findOneBy({ id });
+
     return planet;
   }
-
+  findPlanetDetail(id: string) {
+    return this.planetRepo.findOne({
+      where: { id },
+      relations: {
+        moons: true,
+        system: {
+          galaxy: true,
+        },
+      },
+    });
+  }
   update(id: string, updatePlanetDto: UpdatePlanetDto) {
     const planet = this.planetRepo.update(id, updatePlanetDto);
     return planet;

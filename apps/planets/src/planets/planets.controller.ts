@@ -22,7 +22,10 @@ export class PlanetsController {
   findOne(@Payload() id: string) {
     return this.planetsService.findOne(id);
   }
-
+  @MessagePattern('planets.findPlanetDetail')
+  findPlanetDetail(@Payload() id: string) {
+    return this.planetsService.findPlanetDetail(id);
+  }
   @MessagePattern('planets.update')
   update(@Payload() updatePlanetDto: UpdatePlanetDto) {
     return this.planetsService.update(updatePlanetDto.id, updatePlanetDto);

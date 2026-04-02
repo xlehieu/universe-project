@@ -8,27 +8,31 @@ import { UpdateSystemDto } from './dto/update-system.dto';
 export class SystemsController {
   constructor(private readonly systemsService: SystemsService) {}
 
-  @MessagePattern('createSystem')
+  @MessagePattern('systems.create')
   create(@Payload() createSystemDto: CreateSystemDto) {
     return this.systemsService.create(createSystemDto);
   }
 
-  @MessagePattern('findAllSystems')
+  @MessagePattern('systems.findAll')
   findAll() {
     return this.systemsService.findAll();
   }
 
-  @MessagePattern('findOneSystem')
-  findOne(@Payload() id: number) {
+  @MessagePattern('systems.findOne')
+  findOne(@Payload() id: string) {
     return this.systemsService.findOne(id);
   }
+  @MessagePattern('systems.getSystemWithGalaxy')
+  getSystemWithGalaxy(@Payload() id: string) {
+    return this.systemsService.getSystemWithGalaxy(id);
+  }
 
-  @MessagePattern('updateSystem')
+  @MessagePattern('systems.update')
   update(@Payload() updateSystemDto: UpdateSystemDto) {
     return this.systemsService.update(updateSystemDto.id, updateSystemDto);
   }
 
-  @MessagePattern('removeSystem')
+  @MessagePattern('systems.remove')
   remove(@Payload() id: number) {
     return this.systemsService.remove(id);
   }

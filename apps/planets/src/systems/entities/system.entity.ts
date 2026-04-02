@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryColumn,
@@ -29,11 +30,12 @@ export class System {
   @Column('float')
   position_z!: number;
 
-  @OneToMany(() => Planet, (planet) => planet.system_id)
+  @OneToMany(() => Planet, (planet) => planet.system)
   planets!: Planet[];
 
   @Column('uuid')
   galaxy_id!: string;
-  @ManyToOne(() => Galaxy, (galaxy) => galaxy.systems)
+  @ManyToOne(() => Galaxy, (galaxy) => galaxy.systems, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'galaxy_id' })
   galaxy!: Galaxy;
 }

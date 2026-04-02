@@ -12,11 +12,11 @@ async function bootstrap() {
       },
     },
   );
-  console.log('=======> USERS SERVICE');
-  console.log('=======>');
-  console.log('=======>');
-  console.log('=======>');
-  console.log('=======>');
+  console.log('=========>');
+  console.log('===========>');
+  console.log('=============> USERS SERVICE');
+  console.log('===========>');
+  console.log('=========>');
   await app.listen();
 }
 bootstrap();

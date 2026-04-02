@@ -27,6 +27,6 @@ export class Galaxy {
   @Column('float')
   position_z!: number;
 
-  @OneToMany(() => System, (system) => system.galaxy_id)
+  @OneToMany(() => System, (system) => system.galaxy)
   systems: System[];
 }

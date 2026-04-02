@@ -34,5 +34,5 @@ export class CreatePlanetDto {
   ring_color_hex?: string;
 
   @ApiProperty({ example: '550e8400-e29b-41d4-a716-446655440000' })
-  solar_system_id: string;
+  system_id: string;
 }
