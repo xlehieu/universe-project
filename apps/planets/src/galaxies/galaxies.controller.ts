@@ -19,7 +19,7 @@ export class GalaxiesController {
   }
 
   @MessagePattern('galaxy.findOne')
-  findOne(@Payload() id: number) {
+  findOne(@Payload() id: string) {
     return this.galaxiesService.findOne(id);
   }
 
@@ -29,7 +29,7 @@ export class GalaxiesController {
   }
 
   @MessagePattern('galaxy.remove')
-  remove(@Payload() id: number) {
+  remove(@Payload() id: string) {
     return this.galaxiesService.remove(id);
   }
 }

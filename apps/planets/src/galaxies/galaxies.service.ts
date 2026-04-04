@@ -21,15 +21,15 @@ export class GalaxiesService {
     return galaxies;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} galaxy`;
+  findOne(id: string) {
+    return this.galaxyRepo.findOneBy({ id });
   }
 
-  update(id: number, updateGalaxyDto: UpdateGalaxyDto) {
-    return `This action updates a #${id} galaxy`;
+  update(id: string, updateGalaxyDto: UpdateGalaxyDto) {
+    return this.galaxyRepo.update(id, updateGalaxyDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} galaxy`;
+  remove(id: string) {
+    return this.galaxyRepo.delete(id);
   }
 }

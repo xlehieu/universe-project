@@ -1,17 +1,16 @@
 import { Module } from '@nestjs/common';
-import { PlanetsModule } from './planets/planets.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { MoonsModule } from './moons/moons.module';
-import { SystemsModule } from './systems/systems.module';
-import { GalaxiesModule } from './galaxies/galaxies.module';
+import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    // Load biến môi trường từ file .env
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: 'apps/planets/.env.example',
+      envFilePath: 'apps/users/.env.example',
     }),
+
     // Kết nối PostgreSQL
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -28,12 +27,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         autoLoadEntities: true,
       }),
     }),
-    PlanetsModule,
-    MoonsModule,
-    SystemsModule,
-    GalaxiesModule,
+    UsersModule,
   ],
-  controllers: [],
-  providers: [],
 })
-export class PlanetsAppModule {}
+export class UsersAppModule {}

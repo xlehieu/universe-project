@@ -25,20 +25,21 @@ export class SystemsService {
       where: { id },
     });
   }
-  getSystemWithGalaxy(id: string) {
+  getSystemDetail(id: string) {
     return this.systemRepo.findOne({
       where: { id },
       relations: {
+        planets: true,
         galaxy: true,
       },
     });
   }
 
-  update(id: number, updateSystemDto: UpdateSystemDto) {
-    return `This action updates a #${id} system`;
+  update(id: string, updateSystemDto: UpdateSystemDto) {
+    return this.systemRepo.update(id, updateSystemDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} system`;
+  remove(id: string) {
+    return this.systemRepo.delete(id);
   }
 }

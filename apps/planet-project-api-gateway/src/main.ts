@@ -4,7 +4,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(PlanetProjectApiGatewayModule);
-
   const config = new DocumentBuilder()
     .setTitle('Planet Project API')
     .setDescription('API documentation for Planet Project')
@@ -13,11 +12,11 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
-  console.log('=======> API GATEWAY');
-  console.log('=======>');
-  console.log('=======>');
-  console.log('=======>');
-  console.log('=======>');
+  console.log('=========>');
+  console.log('===========>');
+  console.log('=============> API GATEWAY SERVICE');
+  console.log('===========>');
+  console.log('=========>');
   await app.listen(3000);
 }
 bootstrap();

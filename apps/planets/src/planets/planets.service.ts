@@ -11,14 +11,13 @@ export class PlanetsService {
     @InjectRepository(Planet)
     private planetRepo: Repository<Planet>,
   ) {}
-  async create(createPlanetDto: CreatePlanetDto) {
+  create(createPlanetDto: CreatePlanetDto) {
     const planet = this.planetRepo.create(createPlanetDto);
-    return await this.planetRepo.save(planet);
+    return this.planetRepo.save(planet);
   }
 
-  async findAll() {
-    const planets = await this.planetRepo.find();
-    return planets;
+  findAll() {
+    return this.planetRepo.find();
   }
 
   findOne(id: string) {
@@ -38,12 +37,10 @@ export class PlanetsService {
     });
   }
   update(id: string, updatePlanetDto: UpdatePlanetDto) {
-    const planet = this.planetRepo.update(id, updatePlanetDto);
-    return planet;
+    return this.planetRepo.update(id, updatePlanetDto);
   }
 
-  async remove(id: string) {
-    await this.planetRepo.softDelete(id);
-    return true;
+  remove(id: string) {
+    return this.planetRepo.softDelete(id);
   }
 }

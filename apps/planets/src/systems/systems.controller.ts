@@ -24,7 +24,7 @@ export class SystemsController {
   }
   @MessagePattern('systems.getSystemWithGalaxy')
   getSystemWithGalaxy(@Payload() id: string) {
-    return this.systemsService.getSystemWithGalaxy(id);
+    return this.systemsService.getSystemDetail(id);
   }
 
   @MessagePattern('systems.update')
@@ -33,7 +33,7 @@ export class SystemsController {
   }
 
   @MessagePattern('systems.remove')
-  remove(@Payload() id: number) {
+  remove(@Payload() id: string) {
     return this.systemsService.remove(id);
   }
 }
